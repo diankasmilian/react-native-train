@@ -8,14 +8,20 @@ export const Form = ({ addHandler }) => {
     setText(text);
   };
 
+  const addTask = () => {
+    addHandler(text);
+    setText('');
+  };
+
   return (
     <View>
       <TextInput
         style={styles.input}
         onChangeText={onChange}
+        value={text}
         placeholder="Task"
       />
-      <Button title="Add" color="green" onPress={() => addHandler(text)} />
+      <Button title="Add" color="green" onPress={addTask} />
     </View>
   );
 };
